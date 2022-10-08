@@ -13,12 +13,13 @@ config:
   phases:
     - name: Ramp
       duration: 50
-      arrivalRate: 0.1
-      rampTo: 0.3
+      arrivalRate: 3
+      rampTo: 30
     - name: Plain
       duration: 150
-      arrivalRate: 0.3
-    - arrivalRate: 0
+      arrivalRate: 3
+    - name: HEAVY
+      arrivalRate: 1
       duration: 10
     
 
