@@ -3,6 +3,9 @@ version: '2'
 services:
     node:
         build: ./app
+        deploy:
+            mode: replicated
+            replicas: 3
 
     bbox:
         image: arqsoft/bbox:202202.1
@@ -12,9 +15,7 @@ services:
     nginx:
         image: nginx:1.23.1
         ports:
-            - "5555:9090"
-            - "9090:9091"
-            - "9091:9092"
+            - "5555:80"
         volumes:
             - ./nginx_reverse_proxy.conf:/etc/nginx/conf.d/default.conf:ro
             - ./store/static/files:/static:ro
