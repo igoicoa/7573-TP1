@@ -1,0 +1,30 @@
+config:
+  environments:
+    node:
+      target: 'http://localhost:5555/node'
+      plugins:
+        statsd:
+          host: localhost
+          port: 8125
+          prefix: "artillery-node"
+  http:
+    timeout: 120
+
+  pool: 50 # All HTTP requests from all virtual users will be sent over the same connections
+
+  phases:
+    - name: Ramp - Warm up
+      duration: 20
+      arrivalRate: 1
+      rampTo: 3
+    - name: Plain - Cantidad fija requests
+      duration: 120
+      arrivalRate: 2
+    - arrivalRate: 0
+      duration: 20
+
+scenarios:
+  - name: Root (/)
+    flow:
+      - get:
+          url: '/heavy'
