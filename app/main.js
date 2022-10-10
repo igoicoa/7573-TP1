@@ -20,15 +20,13 @@ app.listen(PORT, function () {
 });
 
 app.get('/sync', (req, res) => {
-    //metrics('sync')
     axios.get(url_sync).then(res_service => {
-        res.status(200).send(`Res sync service\n ${res_service.data}\n`)
+        res.status(200).send(`Response sync service\n ${res_service.data}\n`)
     })
 })
 
 app.get('/async', (req, res) => {
-    //metrics('async')
     axios.get(url_async).then(res_service => {
-        res.status(200).send(`Res async service\n ${res_service.data}\n`)
+        res.status(200).send(`Response async service\n ${res_service.data}\n`)
     })
 })
