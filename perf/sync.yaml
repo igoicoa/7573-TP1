@@ -1,14 +1,7 @@
 config:
   environments:
-    bbox1:
-      target: 'http://localhost:9090/bbox1'
-      plugins:
-        statsd:
-          host: localhost
-          port: 8125
-          prefix: "artillery-node"
-    bbox2:
-      target: 'http://localhost:9091/bbox2'
+    node:
+      target: 'http://localhost:5555/node'
       plugins:
         statsd:
           host: localhost
@@ -36,7 +29,7 @@ config:
 
 
 scenarios:
-  - name: Root (/)
+  - name: sync
     flow:
       - get:
-          url: '/'
+          url: '/sync'
