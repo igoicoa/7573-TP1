@@ -6,26 +6,35 @@ config:
         statsd:
           host: localhost
           port: 8125
-          prefix: "artillery-bbox1"
-
+          prefix: "artillery-node"
     bbox2:
       target: 'http://localhost:9091/bbox2'
       plugins:
         statsd:
           host: localhost
           port: 8125
-          prefix: "artillery-bbox2"
+          prefix: "artillery-node"
+
 
   pool: 50 # All HTTP requests from all virtual users will be sent over the same connections
 
   phases:
-    - name: Ramp
-      duration: 30
-      arrivalRate: 5
+    - name: Ramp - 1
+      duration: 10
+      arrivalRate: 10
       rampTo: 30
-    - name: Plain
-      duration: 120
+    - name: Plain - 1
+      duration: 20
       arrivalRate: 30
+    - name: Ramp - 2
+      duration: 20
+      arrivalRate: 90
+      rampTo: 90
+    - name: Plain - 2
+      duration: 20
+      arrivalRate: 90
+
+
     
 
 scenarios:

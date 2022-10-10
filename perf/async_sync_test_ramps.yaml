@@ -1,14 +1,14 @@
 config:
   environments:
-    async:
-      target: 'http://localhost:5555/node/async-proxy'
+    bbox1:
+      target: 'http://localhost:9090/bbox1'
       plugins:
         statsd:
           host: localhost
           port: 8125
           prefix: "artillery-node"
-    sync:
-      target: 'http://localhost:5555/node/sync-proxy'
+    bbox2:
+      target: 'http://localhost:9091/bbox2'
       plugins:
         statsd:
           host: localhost
@@ -21,21 +21,19 @@ config:
   phases:
     - name: Ramp - 1
       duration: 10
-      arrivalRate: 5
-      rampTo: 5
+      arrivalRate: 1
+      rampTo: 10
     - name: Plain - 1
-      duration: 10
-      arrivalRate: 5
+      duration: 20
+      arrivalRate: 10
     - name: Ramp - 2
       duration: 10
-      arrivalRate: 5
-      rampTo: 25
-    - name: Plain - 1
-      duration: 10
-      arrivalRate: 25
+      arrivalRate: 10
+      rampTo: 30
+    - name: Plain - 2
+      duration: 20
+      arrivalRate: 30
 
-
-    
 
 scenarios:
   - name: Root (/)
