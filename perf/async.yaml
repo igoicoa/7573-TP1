@@ -34,4 +34,4 @@ scenarios:
   - name: async
     flow:
       - get:
-          url: '/async'
+          url: '/async-proxy'

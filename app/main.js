@@ -19,14 +19,14 @@ app.listen(PORT, function () {
   console.log('App listening on port', PORT);
 });
 
-app.get('/sync', (req, res) => {
+app.get('/sync-proxy', (req, res) => {
     axios.get(url_sync).then(res_service => {
-        res.status(200).send(`Response sync service\n ${res_service.data}\n`)
+        res.status(200).send('Sync')
     })
 })
 
-app.get('/async', (req, res) => {
+app.get('/async-proxy', (req, res) => {
     axios.get(url_async).then(res_service => {
-        res.status(200).send(`Response async service\n ${res_service.data}\n`)
+        res.status(200).send('Async')
     })
 })

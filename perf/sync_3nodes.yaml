@@ -32,4 +32,4 @@ scenarios:
   - name: sync
     flow:
       - get:
-          url: '/sync'
+          url: '/sync-proxy'
