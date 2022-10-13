@@ -1,0 +1,56 @@
+config:
+  environments:
+    node:
+      target: 'http://localhost:5555/node'
+      plugins:
+        statsd:
+          host: localhost
+          port: 8125
+          prefix: "artillery-node"
+  http:
+    timeout: 200
+
+  pool: 50 # All HTTP requests from all virtual users will be sent over the same connections
+
+  phases:
+    - name: Plain
+      duration: 100
+      arrivalRate: 1
+
+scenarios:
+  - name: Root (/)
+    flow:
+      - get:
+          url: '/login'
+      - get:
+          url: '/carrera'
+      - get:
+          url: '/inscripciones'
+      - get:
+          url: '/materias'
+      - get:
+          url: '/inscribirse'
+      - get:
+          url: '/inscripciones'
+      - get:
+          url: '/materias'
+      - get:
+          url: '/inscribirse'
+      - get:
+          url: '/inscripciones'
+      - get:
+          url: '/materias'
+      - get:
+          url: '/inscribirse'
+      - get:
+          url: '/inscripciones'
+      - get:
+          url: '/materias'
+      - get:
+          url: '/inscribirse'
+      - get:
+          url: '/inscripciones'
+      - get:
+          url: '/materias'
+      - get:
+          url: '/inscribirse'
